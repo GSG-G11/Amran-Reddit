@@ -1,5 +1,5 @@
 require('env2')('.env');
-const {Pool} = require('pg');
+const { Pool } = require('pg');
 
 let DB_URL = '';
 

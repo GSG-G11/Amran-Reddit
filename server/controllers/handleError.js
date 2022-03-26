@@ -6,6 +6,7 @@ const clientError = (req, res)=>{
 
 
 const serverError = (err, req, res, next)=>{
+    console.log(err);
     res.status(500).sendFile(join(__dirname, '..', '..', 'public','html', '500.html'))
 }
 

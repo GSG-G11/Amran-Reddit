@@ -13,10 +13,6 @@ const app = express();
 app.set('PORT', process.env.PORT || 3000);
 
 
-app.get('/', (req, res)=>{
-    res.send("hellow")
-})
-
 app.disable('x-powered-by');
 app.use(compression())
 app.use(express.json());

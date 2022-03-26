@@ -1,7 +1,7 @@
 const connection = require("../config/connection")
 
 
-const getPostQuery = ()=>{
+const getPostsQuery = ()=>{
     return connection.query({
         text: 'SELECT * FROM posts',
         values: []
@@ -9,4 +9,4 @@ const getPostQuery = ()=>{
 };
 
 
-module.exports = getPostQuery;
+module.exports = getPostsQuery;

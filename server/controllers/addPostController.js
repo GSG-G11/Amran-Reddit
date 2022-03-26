@@ -9,8 +9,10 @@ const addPost = (req, res, next) =>{
               post: data.rows[0]
             })
       })
-      .catch(err => res.json({messege: 'Error!'}))
+      .catch(err => res.status(500).json({messege: 'Error!'}))
       
     //   .catch(err => next(err))
 }
+
+
  module.exports = addPost;

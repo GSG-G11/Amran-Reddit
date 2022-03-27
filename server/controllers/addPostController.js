@@ -1,7 +1,7 @@
 const {addPostQuery} = require('../database/queires')
 
 const addPost = (req, res, next) =>{
-    const {title, content, user_id} = req.body;
+    const {title, content} = req.body;
     addPostQuery(title, content, user_id)
       .then(data => {
           res.status(201).json({

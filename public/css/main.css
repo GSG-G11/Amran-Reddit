@@ -7,6 +7,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #dae0e6;
 }
+
 html{
     scroll-behavior: smooth;
 }
@@ -92,7 +93,6 @@ nav{
 }
 a{
     text-decoration: none;
-    font-size: 18px;
     color: #0079d3;
 }
 .advertise{
@@ -105,7 +105,7 @@ a{
     padding: 5px 30px;
     border-radius: 20px;
     text-align: center;
-
+    font-weight: bold;
 
 }
 .sign-up{
@@ -119,9 +119,107 @@ a{
     color: white;
     font-weight: bold;
 
-
-
 }
 .dashboard{
     margin-left: 30px;
 }
+
+/* Style form for sign up  */
+
+input[type = text], input[type = email], input[type = password]{
+    width: 100%;
+    padding: 12px;
+    display: inline-block;
+    margin: 5px 0 22px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f6f7f8;
+
+}
+
+input[type = text]:focus, input[type = email]:focus, input[type = password]:focus{
+    outline: none;
+    border: 1px solid #141414;
+}   
+
+button{
+    background-color: #0079d3;
+    color: white;
+    padding: 14px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    opacity: 0.9;
+
+}
+button:hover {
+    opacity:1;
+  
+}
+.clearfix {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+  }
+  .clearfix button {
+      width: 40%;
+      font-weight: bold;
+      font-size: 16px;
+  }
+
+.model {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+}
+
+.signup-form, .login-form {
+    width: 600px;
+    height: 516px;
+    background-color: #fefefe;
+    /* margin: 5% auto 15% auto; */
+    border: 1px solid #888;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+/* hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  } */
+
+
+.close-signup-form{
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    right: 4px;
+
+}
+.close-signup-form i:hover{
+    color: red;
+    cursor: pointer;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+      width: 100%;
+    }
+  }
+
+p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+

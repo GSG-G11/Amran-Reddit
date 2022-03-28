@@ -5,13 +5,12 @@ const addPost = (req, res, next) =>{
     addPostQuery(title, content, user_id)
       .then(data => {
           res.status(201).json({
-              messege: 'The post add successflly',
+              messege: 'The post added successflly',
               post: data.rows[0]
             })
       })
       .catch(err => res.status(500).json({messege: 'Error!'}))
       
-    //   .catch(err => next(err))
 }
 
 

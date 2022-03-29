@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My profile</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+    <!-- Start navbar -->
+    <nav>
+        <div class="container">
+        <div class="navbar">
+            <div class="logo"><a href="index.html"><img src="../images/reddit-logo-new.png" alt=""></a></div>
+            <div class="search">
+                <form action="search">
+                    <input type="search" name="search" id="search" class="icon-search icon-large" placeholder="&#xf002  Search Reddit">
+                </form>
+            </div>
+            <div class="nav-tool">
+                <div class="advertise"><img src="../images/advertise.png" alt=""></div>
+                <a href="" class="dashboard"><img src="../images/dashboard.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+    </nav>
+    <!-- Finish navbar -->
+
+   
+
+    <div class="container">
+        <div class="divpost">
+            <div class="create-post" id="create-post" onclick="document.getElementById('add-post').style.display = 'block'">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </div>
+            <p>Create new post </p>
+        </div>
+
+        <div class="model" id="add-post">
+            <div class="postcontent">
+
+                <form class="add-post">
+                    <div class="close-signup-form" onclick="document.getElementById('add-post').style.display = 'none'">
+                        <i class="fas fa-times"></i></div>
+                    <h1>Add new post</h1>
+        
+                    <label for="title">title</label>
+                    <input type="text" id="title" class="title" placeholder="title" required>
+        
+                    <label for="content">content</label>
+                    <textarea name="content" id="content" class="content" cols="65" rows="10" placeholder="content"></textarea>    
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn" onclick="document.getElementById('add-post').style.display = 'none'">Cancel</button>
+                        <button type="button" class="login-btn" id="login-btn">post</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/fetch.js"></script>
+</body>
+</html>

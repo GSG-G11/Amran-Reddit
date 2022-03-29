@@ -5,7 +5,7 @@ const { signinSchema } = require('../validation');
 
 const privateKey = process.env.SECRET_KEY;
 
-const login = (req, res)=>{
+const login = (req, res, next)=>{
     const {error, value} = signinSchema.validate(req.body)
     if(error){
         res.status(400).json({msg: error.message})
@@ -21,12 +21,14 @@ const login = (req, res)=>{
                    compare(password, hashedPassword)
                    .then(isMatched =>{
                         if(isMatched){
+                            console.log(id, email, hashedPassword, password);
                             sign({id, email}, privateKey, (err, token)=>{
                                 if(err){
                                     res.status(500).json({msg: 'Internal server error'})
                                 }else{
                                     res.cookie('access_token', token, { httpOnly: true, secure: true })
                                     .status(200).json({msg: 'login successfully!'})
+                                    next();
                                 }
                             })
                         }else{
@@ -34,7 +36,7 @@ const login = (req, res)=>{
                         }
                 }).catch((err) => res.status(500).json({msg:'server error'}));
               }
-          }).catch(err =>res.status(500).json({msg: 'server error'}))
+          }).catch(err =>res.status(500).json({msg: 'server error!!'}))
 
     }
 

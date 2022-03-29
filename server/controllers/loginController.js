@@ -1,3 +1,4 @@
+const {join} = require('path');
 const { compare } = require('bcrypt');
 const {sign} = require('jsonwebtoken');
 const { checkEmailQuery } = require('../database/queires');
@@ -11,6 +12,7 @@ const login = (req, res, next)=>{
         res.status(400).json({msg: error.message})
     }
     else{
+        // let id = ''
         const {email, password} = value;
         checkEmailQuery(email)
           .then(data => {
@@ -18,17 +20,18 @@ const login = (req, res, next)=>{
                   res.status(401).json({msg: 'The email does not exist! signup insted'})
               }else{
                   const {password:hashedPassword, id, email} = data.rows[0];
+                //   id = data.rows[0].id;
                    compare(password, hashedPassword)
                    .then(isMatched =>{
                         if(isMatched){
-                            console.log(id, email, hashedPassword, password);
                             sign({id, email}, privateKey, (err, token)=>{
                                 if(err){
                                     res.status(500).json({msg: 'Internal server error'})
                                 }else{
                                     res.cookie('access_token', token, { httpOnly: true, secure: true })
                                     .status(200).json({msg: 'login successfully!'})
-                                    next();
+                                    
+                                    
                                 }
                             })
                         }else{

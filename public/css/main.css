@@ -259,7 +259,9 @@ p {
     margin-top: 10px;
 }
 .postcontent .content{
-    margin-top: 10px;
+    margin-top: 7px;
+    padding: 5px;
+
 }
 
 .postcontent{

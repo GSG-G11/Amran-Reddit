@@ -4,18 +4,15 @@ require('env2')('.env');
 const privetKey = process.env.SECRET_KEY;
 
 const checkAuth = (req, res, next) => {
-  console.log(req.cookies);
   const token = req.cookies.access_token;
   jwt.verify(token, privetKey, (err, decodeToken) => {
     if (err) {
-      res.status(500).json({msg: 'server error'});
+      res.status(401).json({msg: 'your not authorized!'}); //when there is no token or the user edit in token or error in server like wrong secret key
       console.log(err);
     } else {
-      if (decodeToken.id) {
+      if (decodeToken) {
         req.myToken = decodeToken;
         next();
-      } else {
-        res.status(401).json({msg: 'Login Page'});
       }
     }
   });

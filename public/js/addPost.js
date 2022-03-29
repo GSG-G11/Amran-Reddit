@@ -4,6 +4,7 @@ const postBtn = document.querySelector('.clearfix .postbtn');
 const titleField = document.querySelector('.add-post #title');
 const contentField = document.querySelector('.add-post #content');
 
+const contPost = document.querySelector('.contPost');
 
 postBtn.addEventListener('click', (e) =>{
     e.preventDefault();
@@ -15,17 +16,30 @@ postBtn.addEventListener('click', (e) =>{
             content: contentField.value
         })
     }).then(data =>data.json())
-    .then(data =>console.log(data))
       .then( ({messege, post}) =>{
-
-        
         swal('Great',messege, 'success')
-        .then(data =>console.log(data))
-        titleInput.value = '';
-        contentInput.value= '';
+        document.getElementById('add-post').style.display = 'none';
+        titleField.value = '';
+        contentField.value= '';
+
+        const postDiv = document.createElement('div');
+        postDiv.classList = 'contPost';
+        postDiv.style.backgroundColor = 'white';
+        postDiv.style.border = '1px solid #888';
+        const h3 = document.createElement('h3');
+        const h1 = document.createElement('h1');
+        h3.innerText = post.title;
+        h1.innerText = post.content;
+
+        postDiv.append(h3, h1);
+
+        contPost.append(postDiv);
+
+
 
 
       })
+
     .then(err =>console.log(err))
 })
 

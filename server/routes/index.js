@@ -2,7 +2,7 @@ const { join } = require('path');
 const router = require('express').Router();
 const {getPosts, addPost, addUser, login} = require('../controllers');
 
-const {checkAuth} = require('../authentication');
+const {checkAuth} = require('../authentication/checkAuth');
 
 
 

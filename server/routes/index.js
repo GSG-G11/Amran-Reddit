@@ -2,7 +2,7 @@ const { join } = require('path');
 const router = require('express').Router();
 const {getPosts, addPost, addUser, login} = require('../controllers');
 
-
+const {checkAuth} = require('../authentication');
 
 
 
@@ -17,9 +17,9 @@ router.get('/details', (req, res)=>{
 
 
 
+router.post('/post', checkAuth , addPost);
 
 router.get('/getPosts', getPosts);
-router.post('/post', addPost);
 
 
 

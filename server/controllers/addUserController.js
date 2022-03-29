@@ -31,7 +31,7 @@ const addUser= (req, res)=>{
               }
            })
           .then((hashedPassword) => {
-              return addUserQuery({ username, email, hashedPassword})
+              return addUserQuery( username, email, hashedPassword)
             })
           .then(data => {
               const {id, username, email} = data.rows[0];
@@ -56,4 +56,4 @@ const addUser= (req, res)=>{
 
 }
 
-module.exports = addUser
+module.exports = addUser;

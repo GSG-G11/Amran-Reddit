@@ -1,7 +1,8 @@
 const {clientError, serverError} = require('./handleError');
 const addPost = require('./addPostController');
 const getPosts = require('./getPostsController');
-const addUser = require('./addUserController')
+const addUser = require('./addUserController');
+const login = require('./loginController');
 
 
 module.exports = {
@@ -9,5 +10,6 @@ module.exports = {
     serverError,
     addPost,
     getPosts,
-    addUser
+    addUser,
+    login
 }

@@ -3,7 +3,6 @@ const contentInput = document.querySelector('#content');
 const submitBtn = document.querySelector('#submit')
 
 
-
     //add new user
 //When we use fetch to send the data of requist we should use the input type button not submit
 //When we use form to send the data we need to use submit button
@@ -36,6 +35,50 @@ signupBtn.addEventListener('click', (e)=>{
     // swal('Good job!', 'The user added successfuly', 'success');
 
 })
+
+console.log('dddddddddd');
+
+
+// login
+const loginBtn = document.querySelector('.login-form .clearfix #login-btn');
+const emailLogin = document.querySelector('.login-form .email');
+const passwordLogin = document.querySelector('.login-form .password');
+
+loginBtn.addEventListener('click', (e)=>{
+    console.log('cv');
+    e.preventDefault()
+
+    fetch('/log-in', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            email: emailLogin.value,
+            password: passwordLogin.value
+        })
+
+    }).then(data => data.json())
+    .catch(err => console.log(err))
+
+    
+    emailLogin.value = '';
+    passwordLogin.value = '';
+
+    // swal('Good job!', 'The user added successfuly', 'success');
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // add new post and show it
 submitBtn.addEventListener('click', (e) =>{

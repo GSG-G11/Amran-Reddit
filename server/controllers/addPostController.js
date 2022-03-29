@@ -1,9 +1,9 @@
 const {addPostQuery} = require('../database/queires');
 
-
-const addPost = (req, res, next) =>{
+const addPost = (req, res) =>{
+  const {id} = req.myToken
     const {title, content} = req.body;
-    addPostQuery(title, content, user_id)
+    addPostQuery(title, content, id)
       .then(data => {
           res.status(201).json({
               messege: 'The post added successflly',

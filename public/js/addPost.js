@@ -15,12 +15,12 @@ postBtn.addEventListener('click', (e) =>{
             content: contentField.value
         })
     }).then(data =>data.json())
-    
+    .then(data =>console.log(data))
       .then( ({messege, post}) =>{
-
 
         
         swal('Great',messege, 'success')
+        .then(data =>console.log(data))
         titleInput.value = '';
         contentInput.value= '';
 

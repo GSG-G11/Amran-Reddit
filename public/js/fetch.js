@@ -25,6 +25,7 @@ signupBtn.addEventListener('click', (e)=>{
         })
 
     }).then(data => data.json())
+    .then(data => window.location.href = '/details')
     .catch(err => console.log(err))
 
     
@@ -35,9 +36,6 @@ signupBtn.addEventListener('click', (e)=>{
     // swal('Good job!', 'The user added successfuly', 'success');
 
 })
-
-console.log('dddddddddd');
-
 
 // login
 const loginBtn = document.querySelector('.login-form .clearfix #login-btn');
@@ -56,7 +54,10 @@ loginBtn.addEventListener('click', (e)=>{
             password: passwordLogin.value
         })
 
-    }).then(data => data.json())
+    })    
+    .then(data => data.json())
+    .then(data => window.location.href = '/details')
+
     .catch(err => console.log(err))
 
     
@@ -66,45 +67,4 @@ loginBtn.addEventListener('click', (e)=>{
     // swal('Good job!', 'The user added successfuly', 'success');
 
 })
-
-//login method get 
-fetch('/log-in')
-.then(data => data.json())
-.catch(err => console.log(err))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// add new post and show it
-submitBtn.addEventListener('click', (e) =>{
-    e.preventDefault();
-    fetch('/post', {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            title: titleInput.value,
-            content: contentInput.value
-        })
-    }).then(data =>data.json())
-    .then(console.log())
-    .then( ({messege, post}) =>{
-        swal('Great',messege, 'success')
-        titleInput.value = '';
-        contentInput.value= '';
-
-    })
-    .then(err =>console.log(err))
-})
-
-
 

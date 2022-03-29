@@ -67,6 +67,11 @@ loginBtn.addEventListener('click', (e)=>{
 
 })
 
+//login method get 
+fetch('/log-in')
+.then(data => data.json())
+.catch(err => console.log(err))
+
 
 
 

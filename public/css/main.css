@@ -223,3 +223,48 @@ p {
     margin-bottom: 20px;
 }
 
+.divpost{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.divpost p{
+
+    margin-left: 40px;
+}
+
+.create-post i{
+    font-size: 50px;
+}
+.create-post i:hover{
+    cursor: pointer;
+    color: green;
+}
+
+
+.add-post {
+    width: 600px;
+    height: 400px;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    z-index: 1;
+    /* margin-left: auto; */
+    margin-right: auto;
+    position: relative;
+    padding: 20px;
+}
+.postcontent .title{
+    margin-top: 10px;
+}
+.postcontent .content{
+    margin-top: 10px;
+}
+
+.postcontent{
+    margin-left: 50px;
+}
+.postcontent .clearfix{
+    margin-top: 10px;
+}

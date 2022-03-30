@@ -12,6 +12,7 @@ html{
     scroll-behavior: smooth;
 }
 
+
 nav{
     height: 50px;
     background-color: white;
@@ -280,12 +281,10 @@ p {
     border-radius: 5px;
 }
 
-.contPost h3 {
+.contPost h4 {
     padding: 10px;
 }
-.contPost h1 {
+.contPost h2 {
     padding: 5px;
     padding-left: 10px;     
 }
-
-

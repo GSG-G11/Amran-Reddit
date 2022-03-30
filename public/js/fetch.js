@@ -68,7 +68,7 @@ loginBtn.addEventListener('click', (e)=>{
 
 })
 
-//get posts
+         //get posts
 const contPost = document.querySelector('.contPost');
 
 fetch('/posts')

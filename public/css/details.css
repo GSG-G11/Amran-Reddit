@@ -99,16 +99,8 @@ a{
     margin-right: 20px;
 }
 
-.log-in{
-    margin-bottom: 5px;
-    border: #0079d3 1px solid;
-    padding: 5px 30px;
-    border-radius: 20px;
-    text-align: center;
-    font-weight: bold;
 
-}
-.sign-up{
+.logout{
     margin-bottom: 5px;
     border: #0079d3 1px solid;
     padding: 5px 20px;
@@ -119,7 +111,8 @@ a{
     color: white;
     font-weight: bold;
 
-}
+} 
+
 .dashboard{
     margin-left: 30px;
 }
@@ -290,10 +283,10 @@ p {
     border-radius: 5px;
 }
 
-.contPost h3 {
+.contPost h4 {
     padding: 10px;
 }
-.contPost h1 {
+.contPost h2 {
     padding: 5px;
     padding-left: 10px;     
 }

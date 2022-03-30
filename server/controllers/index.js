@@ -3,6 +3,7 @@ const addPost = require('./addPostController');
 const getPosts = require('./getPostsController');
 const addUser = require('./addUserController');
 const login = require('./loginController');
+const logout = require('./logoutController')
 
 
 module.exports = {
@@ -11,5 +12,6 @@ module.exports = {
     addPost,
     getPosts,
     addUser,
-    login
+    login,
+    logout
 }

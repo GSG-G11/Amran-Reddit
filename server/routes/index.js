@@ -1,6 +1,6 @@
 const { join } = require('path');
 const router = require('express').Router();
-const {getPosts, addPost, addUser, login} = require('../controllers');
+const {getPosts, addPost, addUser, login, logout} = require('../controllers');
 
 const {checkAuth} = require('../authentication/checkAuth');
 
@@ -18,6 +18,8 @@ router.get('/details', (req, res)=>{
 
 
 router.post('/post', checkAuth , addPost);
+
+router.get('/logout', checkAuth, logout);
 
 
 

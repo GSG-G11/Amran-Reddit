@@ -17,7 +17,7 @@ postBtn.addEventListener('click', (e) =>{
         })
     }).then(data =>data.json())
       .then( ({messege, post}) =>{
-        swal('Great',messege, 'success')
+        swal('Great',messege, 'success');
         document.getElementById('add-post').style.display = 'none';
         titleField.value = '';
         contentField.value= '';
@@ -26,12 +26,12 @@ postBtn.addEventListener('click', (e) =>{
         postDiv.classList = 'contPost';
         postDiv.style.backgroundColor = 'white';
         postDiv.style.border = '1px solid #888';
-        const h1 = document.createElement('h1');
-        const h3 = document.createElement('h3');
-        h1.innerText = post.title;
-        h3.innerText = post.content;
+        const h2 = document.createElement('h2');
+        const h4 = document.createElement('h4');
+        h2.innerText = post.title;
+        h4.innerText = post.content;
 
-        postDiv.append(h1, h3);
+        postDiv.append(h2, h4);
 
         contPost.append(postDiv);
 

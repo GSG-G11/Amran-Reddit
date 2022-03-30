@@ -26,12 +26,12 @@ postBtn.addEventListener('click', (e) =>{
         postDiv.classList = 'contPost';
         postDiv.style.backgroundColor = 'white';
         postDiv.style.border = '1px solid #888';
-        const h3 = document.createElement('h3');
         const h1 = document.createElement('h1');
-        h3.innerText = post.title;
-        h1.innerText = post.content;
+        const h3 = document.createElement('h3');
+        h1.innerText = post.title;
+        h3.innerText = post.content;
 
-        postDiv.append(h3, h1);
+        postDiv.append(h1, h3);
 
         contPost.append(postDiv);
 
@@ -40,7 +40,7 @@ postBtn.addEventListener('click', (e) =>{
 
       })
 
-    .then(err =>console.log(err))
+    .catch(err =>console.log(err))
 })
 
 

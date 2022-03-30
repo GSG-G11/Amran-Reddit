@@ -7,8 +7,9 @@ const {checkAuth} = require('../authentication/checkAuth');
 
 
 
+router.get('/posts', getPosts);
 
-router.post('/log-in', login)
+router.post('/log-in', login)   
 router.post('/sign-up', addUser)
 
 router.get('/details', (req, res)=>{
@@ -16,10 +17,8 @@ router.get('/details', (req, res)=>{
 })
 
 
-
 router.post('/post', checkAuth , addPost);
 
-router.get('/getPosts', getPosts);
 
 
 

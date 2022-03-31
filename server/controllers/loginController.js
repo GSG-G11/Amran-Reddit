@@ -32,7 +32,7 @@ const login = (req, res, next) => {
             if (isMatched) {
                 sign({ id, email }, privateKey, (err, token) => {
                     if (err) {
-                        res.status(500).json({ message: 'Internal server error' })
+                        throw customError('server error!', 500);
                     } else {
                         res.cookie('access_token', token, { httpOnly: true, secure: true })
                             .status(201).json({ message: 'login successfully!' })

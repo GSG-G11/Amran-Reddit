@@ -72,7 +72,7 @@ loginBtn.addEventListener('click', (e)=>{
         else if (data.message === 'The email does not exist! signup insted'){
             swal("ERROR!", data.message, "error");
         }
-        else if (data.message === 'please write a correct password' ){
+        else if (data.message === 'please write a correct password'){
             swal("ERROR!", data.message, "error");
         }
         else {

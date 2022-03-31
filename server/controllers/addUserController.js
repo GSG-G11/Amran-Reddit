@@ -30,7 +30,7 @@ const addUser = (req, res, next) => {
             const { id, username, email } = data.rows[0];
             sign({ id, username, email }, privateKey, (err, token) => {
                 if (err) {
-                    throw customError('server error!', 500)
+                    throw customError('server error!', 500);
                 }
                 else {
                     res.cookie('access_token', token, { httpOnly: true, secure: true })

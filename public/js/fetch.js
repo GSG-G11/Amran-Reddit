@@ -33,10 +33,11 @@ signupBtn.addEventListener('click', (e)=>{
         passwordSignup.value = '';
 
         }
-        else if (data.message = 'The email exists login instead!') {
+        else if (data.message === 'The email exists login instead!') {
             swal("ERROR!", data.message, "error");
 
-        } else {
+        }
+        else {
             swal("ERROR!", 'server error', "error");   //server error 
         }
     })
@@ -69,6 +70,9 @@ loginBtn.addEventListener('click', (e)=>{
             passwordLogin.value = '';
         }
         else if (data.message === 'The email does not exist! signup insted'){
+            swal("ERROR!", data.message, "error");
+        }
+        else if (data.message === 'please write a correct password'){
             swal("ERROR!", data.message, "error");
         }
         else {

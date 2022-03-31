@@ -26,11 +26,17 @@ CREATE TABLE comments(
     FOREIGN KEY (post_id) REFERENCES posts(id)
 );
 
-INSERT INTO users (username, email, password) values('Amran', 'amran@gmail.com', '1234');
+INSERT INTO users (username, email, password) values('Amran', 'amran@gmail.com', 'a1234567');
 
-INSERT INTO posts (title, content, user_id) values ('this is title', 'this is content bla bla', 1);
+INSERT INTO posts (title, content, user_id) values ('this is the first post', 'this is first post in my reddit clone', 1);
+INSERT INTO posts (title, content, user_id) values ('this is the second post', 'this is second post in my reddit clone', 1);
+INSERT INTO posts (title, content, user_id) values ('hello there ', 'this is amran elmasri', 1);
+INSERT INTO posts (title, content, user_id) values ('Good Job ', 'Nice job', 1);
 
-INSERT INTO comments (content, user_id, post_id) values ('this is comment', 1, 1);
+
+
+
+--INSERT INTO comments (content, user_id, post_id) values ('this is comment', 1, 1);
 
 
 commit;

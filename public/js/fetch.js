@@ -1,3 +1,4 @@
+
 const titleInput = document.querySelector('#title');
 const contentInput = document.querySelector('#content');
 const submitBtn = document.querySelector('#submit')
@@ -25,17 +26,24 @@ signupBtn.addEventListener('click', (e)=>{
         })
 
     }).then(data => data.json())
-    .then(data => {
+    .then (data =>{
+        if (data.message === 'Registered successfully!'){
         window.location.href = '/details';
         usernameSignup.value = '';
         emailSignup.value = '';
         passwordSignup.value = '';
+
+        }
+        else if (data.message === 'The email exists login instead!') {
+            swal("ERROR!", data.message, "error");
+
+        }
+        else {
+            swal("ERROR!", 'server error', "error");   //server error 
+        }
     })
     .catch(err => console.log(err))
-
     
-    
-
 })
 
 // login
@@ -44,7 +52,6 @@ const emailLogin = document.querySelector('.login-form .email');
 const passwordLogin = document.querySelector('.login-form .password');
 
 loginBtn.addEventListener('click', (e)=>{
-    console.log('cv');
     e.preventDefault()
 
     fetch('/log-in', {
@@ -58,11 +65,22 @@ loginBtn.addEventListener('click', (e)=>{
     })    
     .then(data => data.json())
     .then(data => {
-        window.location.href = '/details';
-        emailLogin.value = '';
-        passwordLogin.value = '';
-    })
+        if(data.message === 'login successfully!'){
+            window.location.href = '/details';
+            emailLogin.value = '';
+            passwordLogin.value = '';
+        }
+        else if (data.message === 'The email does not exist! signup insted'){
+            swal("ERROR!", data.message, "error");
+        }
+        else if (data.message === 'please write a correct password' ){
+            swal("ERROR!", data.message, "error");
+        }
+        else {
+            swal("ERROR!", 'server error', "error");   //server error 
 
+        }
+    })
     .catch(err => console.log(err))
 
     
@@ -94,6 +112,5 @@ fetch('/posts')
 
 })
 .catch(err => console.log(err))
-
 
 

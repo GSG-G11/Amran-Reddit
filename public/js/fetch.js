@@ -82,10 +82,6 @@ loginBtn.addEventListener('click', (e)=>{
         // }
     })
     .catch(err => console.log(err))
-
-    
-
-
 })
 
          //get posts

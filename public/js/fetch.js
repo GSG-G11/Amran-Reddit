@@ -38,9 +38,9 @@ signupBtn.addEventListener('click', (e)=>{
             swal("ERROR!", data.message, "error");
 
         }
-        else {
-            swal("ERROR!", 'server error', "error");   //server error 
-        }
+        // else {
+        //     swal("ERROR!", 'server error', "error");   //server error 
+        // }
     })
     .catch(err => console.log(err))
     
@@ -73,13 +73,13 @@ loginBtn.addEventListener('click', (e)=>{
         else if (data.message === 'The email does not exist! signup insted'){
             swal("ERROR!", data.message, "error");
         }
-        else if (data.message === 'please write a correct password' ){
+        else if (data.message === 'please write a correct password'){
             swal("ERROR!", data.message, "error");
         }
-        else {
-            swal("ERROR!", 'server error', "error");   //server error 
+        // else {
+        //     swal("ERROR!", 'server error', "error");   //server error 
 
-        }
+        // }
     })
     .catch(err => console.log(err))
 

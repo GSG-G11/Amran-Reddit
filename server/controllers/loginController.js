@@ -1,47 +1,58 @@
-const {join} = require('path');
+//validation
+//check email
+//comparePassword
+// set cookies
+//handel errors
+
 const { compare } = require('bcrypt');
-const {sign} = require('jsonwebtoken');
+const { sign } = require('jsonwebtoken');
 const { checkEmailQuery } = require('../database/queires');
 const { signinSchema } = require('../validation');
+const customError = require('../utils/error/custamizeError')
+
+
 
 const privateKey = process.env.SECRET_KEY;
 
-const login = (req, res)=>{
+const login = (req, res, next) => {
+    let id = '';
+    const { password, email } = req.body;
     signinSchema.validateAsync(req.body)
-    .then(value =>{
-        let id = ''
-        const {email, password} = value;
-        checkEmailQuery(email)
-            .then(data => {
-                if(data.rowCount === 0){
-                    res.status(400).json({msg: 'The email does not exist! signup insted'})
-                }else{
-                    const {password:hashedPassword, id, email} = data.rows[0];
-                    id = data.rows[0].id
-                    return compare(password, hashedPassword)
-                    
-                }
-            }).then(isMatched =>{
-            if(isMatched){
-                sign({id, email}, privateKey, (err, token)=>{
-                    if(err){
-                        res.status(500).json({msg: 'Internal server error'})
-                    }else{
+        .then(() => checkEmailQuery(email))
+        .then(data => {
+            if (data.rowCount === 0) {
+                throw customError('The email does not exist! signup insted', 401)      //throw err
+            } else {
+                id = data.rows[0].id
+                const { password: hashedPassword } = data.rows[0];
+                return compare(password, hashedPassword)
+            }
+        })
+        .then(isMatched => {
+            if (isMatched) {
+                sign({ id, email }, privateKey, (err, token) => {
+                    if (err) {
+                        throw customError('server error!', 500);
+                    } else {
                         res.cookie('access_token', token, { httpOnly: true, secure: true })
-                        .status(200).json({msg: 'login successfully!'})
-                        
-                        
+                            .status(201).json({ message: 'login successfully!' })
                     }
                 })
-            }else{
-                res.status(400).json({ msg: 'please write a correct password' })
+            } else {
+                throw customError('please write a correct password', 400);
             }
-        }).catch((err) => res.status(500).json({msg:'server error'}));
-
-    })
-    .catch(({message}) => res.status(400).json({msg: message}));
-
-          
+        })
+        .catch((err) => {
+            if (err.name === 'ValidationError') {
+                const errorList = [];
+                err.details.forEach((error) => {
+                    errorList.push(error.message);
+                })
+                next(customError(errorList, 400))
+            } else {
+                next(err)
+            }
+        });
 }
 
 

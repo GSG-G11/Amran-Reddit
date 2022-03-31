@@ -1,3 +1,4 @@
+
 const titleInput = document.querySelector('#title');
 const contentInput = document.querySelector('#content');
 const submitBtn = document.querySelector('#submit')
@@ -37,9 +38,9 @@ signupBtn.addEventListener('click', (e)=>{
             swal("ERROR!", data.message, "error");
 
         }
-        else {
-            swal("ERROR!", 'server error', "error");   //server error 
-        }
+        // else {
+        //     swal("ERROR!", 'server error', "error");   //server error 
+        // }
     })
     .catch(err => console.log(err))
     
@@ -75,16 +76,12 @@ loginBtn.addEventListener('click', (e)=>{
         else if (data.message === 'please write a correct password'){
             swal("ERROR!", data.message, "error");
         }
-        else {
-            swal("ERROR!", 'server error', "error");   //server error 
+        // else {
+        //     swal("ERROR!", 'server error', "error");   //server error 
 
-        }
+        // }
     })
     .catch(err => console.log(err))
-
-    
-
-
 })
 
          //get posts
@@ -111,6 +108,5 @@ fetch('/posts')
 
 })
 .catch(err => console.log(err))
-
 
 

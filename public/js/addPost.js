@@ -39,13 +39,7 @@ postBtn.addEventListener('click', (e) =>{
           contPost.append(postDiv);
         }
 
-
-
-
       })
 
     .catch(err =>console.log(err))
 })
-
-
-

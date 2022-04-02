@@ -44,14 +44,21 @@ postBtn.addEventListener('click', (e) => {
 
         contPost.append(postDiv);
 
-        deleteIcon.addEventListener("click", () => {
+        deleteIcon.addEventListener("click", () => {        //We should use addEventListener inside the fetch because the fetch is async
           fetch('/deletePost', {
             method: 'delete',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: post.id })
           })
-          deleteIcon.parentElement.remove();
-        })               //We should use addEventListener inside the fetch because the fetch is async
+          .then(data => data.json())
+          .then(data => {
+            if (data.message === 'the post was deleted successfully'){
+              deleteIcon.parentElement.remove();
+            }
+          })
+          .catch(err => console.log(err))
+          
+        })              
       }
 
     })

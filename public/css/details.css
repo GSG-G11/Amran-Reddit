@@ -170,6 +170,7 @@ button:hover {
     width: 100%;
     height: 100%;
     overflow: auto; /* Enable scroll if needed */
+    z-index: 100;
 }
 
 .signup-form, .login-form {
@@ -281,6 +282,7 @@ p {
     margin: auto;
     margin-top: 20px;
     border-radius: 5px;
+    position: relative;
 }
 
 .contPost h4 {
@@ -292,3 +294,16 @@ p {
 }
 
 
+.delete-icon {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+
+}
+
+.delete-icon i {
+    color:  red;
+    font-size: 20px;
+
+}

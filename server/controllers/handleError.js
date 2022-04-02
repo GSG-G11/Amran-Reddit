@@ -6,7 +6,6 @@ const clientError = (req, res)=>{
 
 
 const serverError = (err, req, res, next)=>{
-
     
     if(err.status){
         res.status(err.status).json({message: err.message, status: err.status})

@@ -84,7 +84,7 @@ loginBtn.addEventListener('click', (e)=>{
     .catch(err => console.log(err))
 })
 
-         //get posts
+         //get posts in home page
 const contPost = document.querySelector('.contPost');
 
 fetch('/posts')
@@ -98,10 +98,14 @@ fetch('/posts')
         postDiv.style.border = '1px solid #888';
         const h2 = document.createElement('h2');
         const h4 = document.createElement('h4');
+        const h5 = document.createElement('h5');
+
         h2.innerText = post.title;
         h4.innerText = post.content;
+        h5.innerText = `posted by ${post.username}`;
+
     
-        postDiv.append(h2, h4);
+        postDiv.append(h2, h4, h5);
     
         contPost.append(postDiv);
     })

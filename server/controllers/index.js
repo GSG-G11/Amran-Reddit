@@ -4,6 +4,8 @@ const getPosts = require('./getPostsController');
 const addUser = require('./addUserController');
 const login = require('./loginController');
 const logout = require('./logoutController')
+const deletePost = require('./deletePostController')
+const getUserPosts = require('./getUserPostsController')
 
 
 module.exports = {
@@ -13,5 +15,7 @@ module.exports = {
     getPosts,
     addUser,
     login,
-    logout
+    logout,
+    deletePost,
+    getUserPosts
 }
